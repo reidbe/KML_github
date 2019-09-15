@@ -1,9 +1,9 @@
 import serial_stuff
 import save_to_txt
 import time
-import kml_editor
 import git_repo
 import pynmea2
+import kml_editor
 filename = time.strftime("%Y%m%d-%H%M%S")  #Create file name, on this form 'yyyymmdd-hhmmss'
 save_to_txt.create_file(filename)
 tid_stop = 7
