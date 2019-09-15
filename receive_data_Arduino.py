@@ -28,7 +28,7 @@ while 1:
         break
 
 
-print('Får ikke data fra GPS, lagrer til KML')
+print('Mottar ikke data fra GPS, lagrer til KML')
 
 #lagrer vektor med kordinater som KML-fil og lagrer på github
 
@@ -37,6 +37,7 @@ if len(coordinates)>1:
     #Laster opp KML-fil til github
     git_repo.save_file(filename + '.kml', 'KML-fil')
     #git_repo.save_string_file(filename, 'KML-fil', strimg)
+    print('Lagret fil på github')
 
 
 
