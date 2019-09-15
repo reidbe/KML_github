@@ -33,7 +33,6 @@ print('Mottar ikke data fra GPS, lagrer til KML')
 if len(coordinates)>1:
     kml_editor.create_KML(filename, coordinates)
     git_repo.save_file(filename + '.kml', 'KML-fil')
-    print('Lagret fil på github')
 
 
 
