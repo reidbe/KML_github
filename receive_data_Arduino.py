@@ -1,9 +1,6 @@
 import serial_stuff
-import sys
 import save_to_txt
 import time
-sys.path.append('/usr')
-import git_repo
 import pynmea2
 import kml_editor
 filename = time.strftime("%Y%m%d-%H%M%S")  #Create file name, on this form 'yyyymmdd-hhmmss'
@@ -34,9 +31,6 @@ print('Mottar ikke data fra GPS, lagrer til KML')
 
 if len(coordinates)>1:
     kml_editor.create_KML(filename, coordinates)
-    git_repo.save_file(filename + '.kml', 'KML-fil')
-
-
 
 
 
