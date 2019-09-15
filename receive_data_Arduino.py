@@ -1,4 +1,5 @@
 import serial_stuff
+import sys
 import save_to_txt
 import time
 sys.path.append('/usr')
