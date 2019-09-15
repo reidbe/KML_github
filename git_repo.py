@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/usr')
+
 from github import Github
 g = Github("rei.berge@gmail.com", "snObbA2019")
 org = g.get_organization('RB-KML-database')
