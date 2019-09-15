@@ -1,6 +1,7 @@
 import serial_stuff
 import save_to_txt
 import time
+sys.path.append('/usr')
 import git_repo
 import pynmea2
 import kml_editor
