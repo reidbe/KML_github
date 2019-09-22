@@ -35,7 +35,8 @@ while 1:
                     print(string)
                     save_to_txt(string+'\n', filename)
                 except:
-                    print('feil på strng:  ' + string)        
+                    print('feil på strng')
+                    print(string)        
                 tid = time.time()
             elif ((time.time()-tid)>tid_stop):
                 print('Lager ny fil')
