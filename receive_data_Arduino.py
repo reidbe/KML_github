@@ -15,7 +15,7 @@ def save_to_txt(string, filename):
 
 
 
-feilmld = 'feil på streng'
+feilmld = 'feil'
 
 feather_data = serial_stuff.receive_data_from_Arduino()
 while 1:
