@@ -4,7 +4,6 @@ import time
 tid_stop = 7
 
 feather_data = serial_stuff.receive_data_from_Arduino()
-coordinates = []
 while 1:
     feather_data.update()
     if (feather_data.new_data == True):
@@ -22,6 +21,7 @@ while 1:
                 save_to_txt.save_to_txt(string+'\n', filename)
                 tid = time.time()
             elif ((time.time()-tid)>tid_stop):
+                print('LAger ny fil')
                 break
 
 
