@@ -36,7 +36,7 @@ while 1:
                     save_to_txt(string+'\n', filename)
                 except:
                     print(feilmld)
-                    print(string)        
+                    print(feather_data.string_received)        
                 tid = time.time()
             elif ((time.time()-tid)>tid_stop):
                 print('Lager ny fil')
