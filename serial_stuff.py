@@ -1,7 +1,7 @@
 import serial
 import time
 
-ser = serial.Serial('/dev/ttyACM0', 115200 )
+ser = serial.Serial('COM5', 115200 )
 time.sleep(1) #necessary to wait 1 sec to start seial commmunication
 
 

@@ -1,36 +1,39 @@
 import serial_stuff
 import save_to_txt
 import time
-import pynmea2
-import kml_editor
-filename = time.strftime("%Y%m%d-%H%M%S")  #Create file name, on this form 'yyyymmdd-hhmmss'
-save_to_txt.create_file(filename)
 tid_stop = 7
 
 feather_data = serial_stuff.receive_data_from_Arduino()
 coordinates = []
-tid = time.perf_counter()
+print("Starter opp lagring av kordinater")
 while 1:
     feather_data.update()
     if (feather_data.new_data == True):
-        feather_data.data_interpreted = True
-        feather_data.new_data = False
-        string = feather_data.string_received[:feather_data.string_received.index("\r")]
-        print(string)
-        msg = pynmea2.parse(string)
-        if(msg.latitude!=0):    # lagrer ikkje kordinater som er 0,0 til KML-filen
-            coordinates.append(( str(msg.longitude) , str(msg.latitude) ) )
-        save_to_txt.save_to_txt(string+'\n', filename)
-        print(coordinates)
+        print("starter på ny fil")
+        filename = time.strftime("%Y%m%d-%H%M%S")  # Create file name, on this form 'yyyymmdd-hhmmss'
+        save_to_txt.create_file(filename)
         tid = time.perf_counter()
-    elif ((time.perf_counter()-tid)>tid_stop):
-        break
+
+        while 1:
+            feather_data.update()
+            if (feather_data.new_data == True):
+                feather_data.data_interpreted = True
+                feather_data.new_data = False
+                string = feather_data.string_received[:feather_data.string_received.index("\r")]
+                print(string)
+                save_to_txt.save_to_txt(string+'\n', filename)
+                tid = time.perf_counter()
+            elif ((time.perf_counter()-tid)>tid_stop):
+                #Avbryter, tatt for lang tid fra forrige målepunkt mottatt
+                print("avbryter lagring")
+                break
 
 
-print('Mottar ikke data fra GPS, lagrer til KML')
 
-if len(coordinates)>1:
-    kml_editor.create_KML(filename, coordinates)
+
+
+
+
 
 
 
