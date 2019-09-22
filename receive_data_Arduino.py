@@ -15,7 +15,7 @@ def save_to_txt(string, filename):
 
 
 
-
+feilmld = 'feil på streng'
 
 feather_data = serial_stuff.receive_data_from_Arduino()
 while 1:
@@ -35,7 +35,7 @@ while 1:
                     print(string)
                     save_to_txt(string+'\n', filename)
                 except:
-                    print('feil på strng')
+                    print(feilmld)
                     print(string)        
                 tid = time.time()
             elif ((time.time()-tid)>tid_stop):
