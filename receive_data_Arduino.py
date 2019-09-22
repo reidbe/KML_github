@@ -10,7 +10,7 @@ while 1:
     if (feather_data.new_data == True):
         filename = time.strftime('%Y%m%d-%H%M%S') 
         save_to_txt.create_file(filename)
-        tid = time.perf_counter()
+        tid = time.time()
 
         while 1:
             feather_data.update()
@@ -20,8 +20,8 @@ while 1:
                 string = feather_data.string_received[:feather_data.string_received.index("\r")]
                 print(string)
                 save_to_txt.save_to_txt(string+'\n', filename)
-                tid = time.perf_counter()
-            elif ((time.perf_counter()-tid)>tid_stop):
+                tid = time.time()
+            elif ((time.time()-tid)>tid_stop):
                 break
 
 
