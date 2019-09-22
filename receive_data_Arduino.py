@@ -12,10 +12,9 @@ def save_to_txt(string, filename):
     save_measure_file.write(string)
     save_measure_file.close()
 
-
-
-
 feilmld = 'feil'
+oppstartMld = 'Starter receive_data_Arduino.py'
+print(oppstartMld)
 
 feather_data = serial_stuff.receive_data_from_Arduino()
 while 1:
