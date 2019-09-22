@@ -16,7 +16,7 @@ while 1:
             if (feather_data.new_data == True):
                 feather_data.data_interpreted = True
                 feather_data.new_data = False
-                string = feather_data.string_received[:feather_data.string_received.index("\r")]
+                string = feather_data.string_received
                 print(string)
                 save_to_txt.save_to_txt(string+'\n', filename)
                 tid = time.time()
