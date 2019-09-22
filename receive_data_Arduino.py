@@ -1,6 +1,6 @@
 import serial_stuff
 import time
-tid_stop = 7
+tid_stop = 120
 
 def create_file(filename):
     save_measure_file = open(filename + '.txt', 'w')
