@@ -16,12 +16,15 @@ while 1:
             if (feather_data.new_data == True):
                 feather_data.data_interpreted = True
                 feather_data.new_data = False
-                string = feather_data.string_received
-                print(string)
-                save_to_txt.save_to_txt(string+'\n', filename)
+                try:
+                    string = feather_data.string_received[:feather_data.string_received.index('\r')]
+                    print(string)
+                    save_to_txt.save_to_txt(string+'\n', filename)
+                except:
+                    a = 12              
                 tid = time.time()
             elif ((time.time()-tid)>tid_stop):
-                print('LAger ny fil')
+                print('Lager ny fil')
                 break
 
 
